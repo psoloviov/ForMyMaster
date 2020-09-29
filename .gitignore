@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/rider,csharp
 # Edit at https://www.toptal.com/developers/gitignore?templates=rider,csharp
 
@@ -431,13 +430,3 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # End of https://www.toptal.com/developers/gitignore/api/rider,csharp
-*.xml
-*.iml
-Task 1/algorithms/Task1.0/Properties/AssemblyInfo.cs
-*.csproj
-Task 1/algorithms/Task1.1/Properties/AssemblyInfo.cs
-Task 1/algorithms/algorithms.sln
-Task 1/algorithms/Task1.2/Properties/AssemblyInfo.cs
-Task 1/algorithms/Task1.3/Properties/AssemblyInfo.cs
-Task 1/OOP/OOP.sln
-Task 1/OOP/Task2.0/Properties/AssemblyInfo.cs
