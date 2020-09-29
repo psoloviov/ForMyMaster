@@ -15,27 +15,22 @@ namespace Task2._0
             this.z = z;
         }
 
-        public double Length()
+        public double length()
         {
             return Math.Sqrt(x * x + y * y + z * z);
         }
 
-        public double ScalarProduct(Vector vector)
+        public double scalarProduct(Vector vector)
         {
-            return x * vector.x + y * vector.y + z * vector.z;
+            return (x * vector.x + y * vector.y + z * vector.z);
         }
 
-        public Vector CrossProduct(Vector vector)
+        public Vector crossProduct(Vector vector)
         {
             return new Vector(
-                y * vector.z - z * vector.y,
-                z * vector.x - x * vector.z,
-                x * vector.y - y * vector.x);
-        }
-
-        public double Cos(Vector vector)
-        {
-            return ScalarProduct(vector) / (Length() * vector.Length());
+                y * vector.z - vector.y * z,
+                z * vector.x - vector.z * x,
+                x * vector.y - vector.x + y);
         }
 
         public Vector Add(Vector vector)
@@ -43,11 +38,10 @@ namespace Task2._0
             return new Vector(
                 x + vector.x,
                 y + vector.y,
-                z + vector.z
-            );
+                z + vector.z);
         }
 
-        public Vector Subtract(Vector vector)
+        public Vector Minus(Vector vector)
         {
             return new Vector(
                 x - vector.x,
@@ -55,21 +49,28 @@ namespace Task2._0
                 z - vector.z);
         }
 
-        public static Vector[] Generate(int n)
+        public static Vector[] generate(int length)
         {
-            Vector[] vectors = new Vector[n];
-            var rand = new Random();
-            for (int i = 0; i < n; i++)
+            Random rand = new Random();
+            Vector[] vectors = new Vector[length];
+            for (int i = 0; i < length; i++)
             {
-                vectors[i] = new Vector(rand.Next(), rand.Next(), rand.Next());
+                vectors[i] = new Vector(rand.Next(-9, 9), rand.Next(-9, 9), rand.Next(-9, 9));
             }
 
             return vectors;
         }
 
-        public String String()
+        public string output()
         {
-            return $"Vector[ x = {x}, y = {y}, z = {z} ]";
+            return $"x = {x},\t" +
+                   $"y = {y},\t" +
+                   $"z = {z}";
+        }
+
+        public double cos(Vector vector)
+        {
+            return scalarProduct(vector) / length() * vector.length();
         }
     }
 }
