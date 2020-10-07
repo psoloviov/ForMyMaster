@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="140ef15a-845a-44a3-82b0-f88191258583" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OOP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OOP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2.2/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Task2.2/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2.2/LinkedList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Task2.2/LinkedList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2.2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Task2.2/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,9 +48,9 @@
         <option value="$PROJECT_DIR$/Task2.0/Vector.cs" />
         <option value="$PROJECT_DIR$/Task2.1/Program.cs" />
         <option value="$PROJECT_DIR$/Task2.1/RandomArray.cs" />
-        <option value="$PROJECT_DIR$/Task2.2/LinkedList.cs" />
-        <option value="$PROJECT_DIR$/Task2.2/Program.cs" />
         <option value="$PROJECT_DIR$/Task2.2/Item.cs" />
+        <option value="$PROJECT_DIR$/Task2.2/Program.cs" />
+        <option value="$PROJECT_DIR$/Task2.2/LinkedList.cs" />
       </list>
     </option>
   </component>
@@ -143,7 +143,7 @@
       <workItem from="1601289447134" duration="3053000" />
       <workItem from="1601395523958" duration="6466000" />
       <workItem from="1601566850818" duration="3303000" />
-      <workItem from="1602060398469" duration="6041000" />
+      <workItem from="1602060398469" duration="9124000" />
     </task>
     <servers />
   </component>
@@ -165,22 +165,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602066960405">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602071158094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602066960405" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602066960405">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602071158094" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602071158093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602066960405" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602066960405">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602071158093" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602071158093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602066960405" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602066960405">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602071158093" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602071158094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602066960405" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602071158094" />
     <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1601405060230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

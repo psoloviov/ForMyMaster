@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
 
 namespace Task2._2
 {
+    
     public class LinkedList<T> : IEnumerable
     {
         public Item<T> Head { get; private set; }
@@ -10,15 +13,12 @@ namespace Task2._2
 
         public LinkedList()
         {
-            Head = null;
-            Tail = null;
-            Count = 0;
+            Clear();
         }
 
         public LinkedList(T data)
         {
-            var item = new Item<T>(data);
-            SetHeadAndTail(item);
+            SetHeadAndTail(data);
         }
 
         public void Add(T data)
@@ -33,7 +33,7 @@ namespace Task2._2
             }
             else
             {
-                SetHeadAndTail(item);
+                SetHeadAndTail(data);
             }
         }
 
@@ -41,13 +41,13 @@ namespace Task2._2
         {
             if (Head != null)
             {
-
                 if (Head.Data.Equals(data))
                 {
                     Head = Head.Next;
                     Count--;
                     return;
                 }
+
                 var current = Head.Next;
                 var previous = Head;
                 while (current != null)
@@ -61,12 +61,60 @@ namespace Task2._2
 
                     previous = current;
                     current = current.Next;
-                    
                 }
             }
+            else
+            {
+                SetHeadAndTail(data);
+            }
         }
-        public void SetHeadAndTail(Item<T> item)
+
+        public void AppendHead(T data)
         {
+            var item = new Item<T>(data);
+            item.Next = Head;
+            Head = item;
+            Count++;
+        }
+
+        public void InsertAfter(T target, T data)
+        {
+            if (Head != null)
+            {
+                var current = Head;
+                while (current != null)
+                {
+                    if (current.Data.Equals(target))
+                    {
+                        var item = new Item<T>(data);
+                        item.Next = current.Next;
+                        current.Next = item;
+                        Count++;
+                        return;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
+                }
+            }
+            else
+            {
+                // SetHeadAndTail(target);
+                // Add(data);
+            }
+        }
+
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+            Count = 0;
+        }
+
+        private void SetHeadAndTail(T data)
+        {
+            var item = new Item<T>(data);
             Head = item;
             Tail = item;
             Count = 1;
@@ -80,6 +128,11 @@ namespace Task2._2
                 yield return current.Data;
                 current = current.Next;
             }
+        }
+
+        public override string ToString()
+        {
+            return "Linked List " + Count + " elements";
         }
     }
 }
