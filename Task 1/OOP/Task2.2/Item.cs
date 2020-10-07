@@ -14,9 +14,11 @@ namespace Task2._2
             get => data;
             set
             {
-                if (value == null) data = value; else throw new ArgumentNullException(nameof(value));
+                if (value != null) 
+                    data = value;
+                else 
+                    throw new ArgumentNullException(nameof(value));
             }
-            
         }
 
         public Item<T> Next { get; set; }
@@ -30,6 +32,5 @@ namespace Task2._2
         {
             return Data.ToString();
         }
-        
     }
 }

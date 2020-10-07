@@ -15,7 +15,23 @@ namespace Task2._2
             list.Add(4);
             list.Add(5);
 
+            foreach (var item in list)
+            {
+                Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+
             list.Delete(3);
+            list.Delete(1);
+            list.Delete(7);
+            
+            foreach (var item in list)
+            {
+                Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
             
             Console.ReadKey();
         }
