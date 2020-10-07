@@ -8,14 +8,33 @@ namespace Task2._1
         {
             int[] numbers = new[] {1, 2, 3};
             int[] weight = new[] {1, 2, 10};
-            RandomArray rand = new RandomArray(numbers, weight);
 
+            var r = new RandomArray(numbers, weight);
             
-
-            for (int i = 0; i < 100; i++)
+            var one = new int();
+            var two = new int();
+            var three = new int();
+            
+            for (int i = 0; i < 13; i++)
             {
-                Console.WriteLine(rand.getRandom());
+                int x = r.getRandom();
+                switch (x)
+                {
+                    case 1:
+                        one++;
+                        break;
+                    case 2:
+                        two++;
+                        break;
+                    case 3:
+                        three++;
+                        break;
+                }
             }
+
+            Console.WriteLine($"Number one dropped {one} times");
+            Console.WriteLine($"Number two dropped {two} times");
+            Console.WriteLine($"Number three dropped {three} times");
         }
     }
 }

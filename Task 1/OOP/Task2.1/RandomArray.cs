@@ -5,10 +5,11 @@ namespace Task2._1
     public class RandomArray
     {
         private int[] valuesRange;
+        private Random rand = new Random();
+        private int sum = new int();
 
         public RandomArray(int[] numbers, int[] weight)
         {
-            int sum = 0;    
             foreach (var i in weight)
             {
                 sum += i;
@@ -16,7 +17,7 @@ namespace Task2._1
 
             valuesRange = new int[sum];
             int index = 0;
-            
+
             for (int i = 0; i < weight.Length; i++)
             {
                 for (int j = 0; j < weight[i]; j++)
@@ -27,11 +28,12 @@ namespace Task2._1
             }
         }
 
+
         public int getRandom()
         {
-            Random rand = new Random();
-            int randomNumber = rand.Next() % (valuesRange.Length - 1);
-            return valuesRange[randomNumber];
+            int randomNumber = rand.Next(0, valuesRange.Length - 1);
+            int number = valuesRange[randomNumber];
+            return number;
         }
     }
 }
