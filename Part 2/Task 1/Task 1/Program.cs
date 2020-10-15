@@ -6,9 +6,18 @@ namespace Task_1
     {
         public static void Main(string[] args)
         {
-            var array = new int[5];
-            var index = new int();
+            var list = new LinkedList<int>();
+            EnterNumbers(ref list);
+
+            Console.Write("Вывод чисел: ");
+            foreach (var item in list)
+                Console.Write($"{item} ");
+        }
+
+        public static void EnterNumbers(ref LinkedList<int> list)
+        { 
             string str = null;
+            bool validNumber = true;
             do
             {
                 var key = Console.ReadKey().Key;
@@ -68,25 +77,32 @@ namespace Task_1
                     case ConsoleKey.Spacebar:
                         if (str != null)
                         {
-                            array[index++] = Int32.Parse(str);
-                            str = null;
+                            int tmp = Int32.Parse(str);
+                            if (tmp > 0)
+                            {
+                                list.Add(tmp);
+                                str = null;
+                            }
+                            else
+                            {
+                                validNumber = false;
+                            }
                         }
                         break;
 
-                    // case ConsoleKey.OemMinus:
-                    //     str += '-';
-                    //     break;
+                    case ConsoleKey.OemMinus:
+                        str += '-';
+                        break;
 
                     default:
                         Console.WriteLine(" Упс, кажется вы ввели не число!");
+                        Console.Write("Попробуйте снова:");
+                        str = null;
                         break;
                 }
-            } while (Convert.ToInt32(str) > 0 || str == null);
+            } while (validNumber);
 
             Console.WriteLine();
-            Console.Write("Вывод чисел: ");
-            foreach(var n in array)
-                Console.Write($"{n} ");
         }
     }
 }
