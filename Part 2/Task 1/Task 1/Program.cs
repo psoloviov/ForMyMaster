@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Task_1
 {
@@ -8,14 +9,38 @@ namespace Task_1
         {
             var list = new LinkedList<int>();
             EnterNumbers(ref list);
-
+            
+            Console.Write("Введите число, которым хотите разделить массив: ");
+            var userInput = int.Parse(Console.ReadLine());
+            Output(ref list, userInput);
             Console.Write("Вывод чисел: ");
             foreach (var item in list)
                 Console.Write($"{item} ");
         }
 
+        public static void Output(ref LinkedList<int> list, int userInput)
+        {
+            Console.Write("Числа больше: ");
+            foreach (var item in list)
+            {
+                if (item <= userInput)
+                    Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+            Console.Write("Числа меньше: ");
+            foreach (var item in list)
+            {
+                if (item > userInput)
+                    Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+        }
+
         public static void EnterNumbers(ref LinkedList<int> list)
-        { 
+        {
+            Console.Write("Введите положительные числа: ");
             string str = null;
             bool validNumber = true;
             do
@@ -80,7 +105,7 @@ namespace Task_1
                             int tmp = Int32.Parse(str);
                             if (tmp > 0)
                             {
-                                list.Add(tmp);
+                                list.AddLast(tmp);
                                 str = null;
                             }
                             else
@@ -88,6 +113,7 @@ namespace Task_1
                                 validNumber = false;
                             }
                         }
+
                         break;
 
                     case ConsoleKey.OemMinus:
