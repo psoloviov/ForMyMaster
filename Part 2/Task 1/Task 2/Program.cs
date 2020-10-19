@@ -14,18 +14,24 @@ namespace Task_2
 
         public static void Main(string[] args)
         {
+            Console.Write("Введите путь к файлу где присутствует запись в формате <Фамилия> <Возраст>: ");
             string path = Console.ReadLine();
+            
             if (File.Exists(path))
             {
                 var list = new List<table>();
                 foreach (string s in File.ReadAllLines(path))
-                    list.Add(new table() {Name = s.Split(' ')[0], Value = s.Split(' ')[1]});
+                    list.Add(new table() 
+                        {Name = s.Split(' ')[0], Value = s.Split(' ')[1]});
+                Console.Write("Введите возраст старше которого отфильтровать людей: ");
                 string str = Console.ReadLine();
+                
                 while (!int.TryParse(str, out int tmp))
                 {
                     Console.WriteLine("Вы ввели некоррекное число");
                     str = Console.ReadLine();
                 }
+
                 FilterAge(list, Convert.ToInt32(str));
             }
             else
@@ -43,8 +49,9 @@ namespace Task_2
                 {
                     if (upperAge <= age)
                     {
-                        Console.WriteLine($"{str.Name} {age}"); 
+                        Console.WriteLine($"{str.Name} {age}");
                     }
+
                     lineNumber++;
                 }
                 else
