@@ -70,24 +70,42 @@ namespace Task_1
 
                     case ConsoleKey.NumPad0:
                     case ConsoleKey.D0:
-                        if (_str == null)
-                            validNumber = false;
+                        if (List.Count == 0)
+                        {
+                            Console.WriteLine("Первое число не может быть равно нулю!");
+                            Console.Write("Попробуйте снова: ");
+                        }
+
                         else
-                            _str += 0;
+                        {
+                            if (_str == null)
+                                validNumber = false;
+                            else
+                                _str += 0;
+                        }
+
                         break;
 
                     case ConsoleKey.Spacebar:
                         if (_str != null)
                         {
                             var tmp = int.Parse(_str);
-                            if (tmp > 0)
+                            if (List.Count == 0)
                             {
-                                List.Add(tmp);
-                                _str = null;
+                                Console.WriteLine(" Первое число не может быть меньше нуля!");
+                                Console.Write("Попробуйте снова: ");
                             }
                             else
                             {
-                                validNumber = false;
+                                if (tmp > 0)
+                                {
+                                    List.Add(tmp);
+                                    _str = null;
+                                }
+                                else
+                                {
+                                    validNumber = false;
+                                }
                             }
                         }
 
@@ -101,11 +119,12 @@ namespace Task_1
                             _str = null;
                         }
 
+
                         break;
 
                     default:
                         Error();
-                        Console.Write("Попробуйте снова:");
+                        Console.Write("Попробуйте снова: ");
                         _str = null;
                         break;
                 }
