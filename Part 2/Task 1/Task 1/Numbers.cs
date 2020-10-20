@@ -6,7 +6,7 @@ namespace Task_1
 {
     public class Numbers
     {
-        private static string _str = null;
+        private static string _str;
         private static readonly List<int> List = new List<int>();
 
         public Numbers()
@@ -70,12 +70,11 @@ namespace Task_1
 
                     case ConsoleKey.NumPad0:
                     case ConsoleKey.D0:
-                        if (List.Count == 0)
+                        if (List.Count == 0 && _str == null)
                         {
                             Console.WriteLine("Первое число не может быть равно нулю!");
                             Console.Write("Попробуйте снова: ");
                         }
-
                         else
                         {
                             if (_str == null)
@@ -90,16 +89,17 @@ namespace Task_1
                         if (_str != null)
                         {
                             var tmp = int.Parse(_str);
-                            if (List.Count == 0)
+                            if (tmp > 0)
                             {
-                                Console.WriteLine(" Первое число не может быть меньше нуля!");
-                                Console.Write("Попробуйте снова: ");
+                                List.Add(tmp);
+                                _str = null;
                             }
                             else
                             {
-                                if (tmp > 0)
+                                if (List.Count == 0)
                                 {
-                                    List.Add(tmp);
+                                    Console.WriteLine("Первое число не может быть меньше нуля.");
+                                    Console.Write("Поробуйте ещё раз: ");
                                     _str = null;
                                 }
                                 else
@@ -108,6 +108,7 @@ namespace Task_1
                                 }
                             }
                         }
+
 
                         break;
 
@@ -165,7 +166,7 @@ namespace Task_1
 
         private static void Error()
         {
-            Console.WriteLine("Error!");
+            Console.WriteLine(" Error! ");
         }
     }
 }
