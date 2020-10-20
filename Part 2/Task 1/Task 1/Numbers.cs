@@ -72,7 +72,7 @@ namespace Task_1
                     case ConsoleKey.D0:
                         if (List.Count == 0 && _str == null)
                         {
-                            Console.WriteLine("Первое число не может быть равно нулю!");
+                            Console.WriteLine(" Первое число не может быть равно нулю!");
                             Console.Write("Попробуйте снова: ");
                         }
                         else
