@@ -4,8 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            Cards.FillDeck();
-            Cards.MixDeck();
+            Players.StartGame();
         }
     }
 }
