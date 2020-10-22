@@ -2,16 +2,18 @@
 
 namespace Task_4
 {
-    public class Players
+    public static class Players
     {
-        private static List<Cards> _player1Deck = new List<Cards>();
-        private static List<Cards> _player2Deck = new List<Cards>();
-
+        public static List<Cards> Player1Deck = new List<Cards>();
+        public static List<Cards> Player2Deck = new List<Cards>();
+        
+        
         public static void StartGame()
         {
             Cards.FillDeck();
             Cards.MixDeck();
             DistributionCards();
+            GameLogic.GameStart(ref Player1Deck, ref Player2Deck);
         }
 
         private static void DistributionCards()
@@ -20,11 +22,11 @@ namespace Task_4
             {
                 if (i % 2 == 0)
                 {
-                    _player1Deck.Add(Cards.CardsDeck[i]);
+                    Player1Deck.Add(Cards.CardsDeck[i]);
                 }
                 else
                 {
-                    _player2Deck.Add(Cards.CardsDeck[i]);
+                    Player2Deck.Add(Cards.CardsDeck[i]);
                 }
             }
         }

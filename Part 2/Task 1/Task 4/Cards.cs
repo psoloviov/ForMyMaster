@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Task_4
 {
-    public enum CardsNames
+    public enum CardsValue
     {
         Six = 6,
         Seven = 7,
@@ -30,12 +30,12 @@ namespace Task_4
 
 
         private CardsColor _cardsColor;
-        private CardsNames _cardsNames;
+        private CardsValue _cardsValue;
 
-        private Cards(CardsNames cardsNames, CardsColor cardsColor)
+        private Cards(CardsValue cardsValue, CardsColor cardsColor)
         {
             this._cardsColor = cardsColor;
-            this._cardsNames = cardsNames;
+            this._cardsValue = cardsValue;
         }
 
         /// <summary>
@@ -47,7 +47,6 @@ namespace Task_4
             for (var i = CardsDeck.Count - 1; i >= 1; i--)
             {
                 var j = random.Next(i + 1);
-                // обменять значения data[j] и data[i]
                 var temp = CardsDeck[j];
                 CardsDeck[j] = CardsDeck[i];
                 CardsDeck[i] = temp;
@@ -63,7 +62,7 @@ namespace Task_4
             {
                 for (var j = 1; j <= 4; j++)
                 {
-                    var tmp = new Cards((CardsNames) i, (CardsColor) j);
+                    var tmp = new Cards((CardsValue) i, (CardsColor) j);
                     CardsDeck.Add(tmp);
                 }
             }
