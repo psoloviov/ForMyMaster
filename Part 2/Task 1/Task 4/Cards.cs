@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Task_4
 {
-    enum CardsNames
+    public enum CardsNames
     {
         Six = 6,
         Seven = 7,
@@ -15,7 +16,7 @@ namespace Task_4
         Ace = 14
     }
 
-    enum CardsColor
+    public enum CardsColor
     {
         Diamonds = 1,
         Hearts = 2,
@@ -25,8 +26,8 @@ namespace Task_4
 
     public class Cards
     {
-        private static Cards[] _cardDeck = new Cards[36];
-        private static Random _random = new Random();
+        public static readonly List<Cards> CardsDeck = new List<Cards>();
+
 
         private CardsColor _cardsColor;
         private CardsNames _cardsNames;
@@ -36,28 +37,34 @@ namespace Task_4
             this._cardsColor = cardsColor;
             this._cardsNames = cardsNames;
         }
-        
+
+        /// <summary>
+        /// mix deck randomly
+        /// </summary>
         public static void MixDeck()
         {
-            for (var i = _cardDeck.Length - 1; i >= 1; i--)
+            var random = new Random();
+            for (var i = CardsDeck.Count - 1; i >= 1; i--)
             {
-                var j = _random.Next(i + 1);
+                var j = random.Next(i + 1);
                 // обменять значения data[j] и data[i]
-                var temp = _cardDeck[j];
-                _cardDeck[j] = _cardDeck[i];
-                _cardDeck[i] = temp;
+                var temp = CardsDeck[j];
+                CardsDeck[j] = CardsDeck[i];
+                CardsDeck[i] = temp;
             }
         }
-        
 
+        /// <summary>
+        /// create and fill deck
+        /// </summary>
         public static void FillDeck()
         {
-            var index = 0;
             for (var i = 6; i <= 14; i++)
             {
                 for (var j = 1; j <= 4; j++)
                 {
-                    _cardDeck[index++] = new Cards((CardsNames)i,(CardsColor)j);
+                    var tmp = new Cards((CardsNames) i, (CardsColor) j);
+                    CardsDeck.Add(tmp);
                 }
             }
         }
