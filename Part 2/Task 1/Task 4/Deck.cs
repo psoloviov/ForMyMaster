@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Task_4
+{
+    public class Deck
+    {
+        public static readonly List<Deck> CardsDeck = new List<Deck>();
+        private CardsColor _cardsColor;
+        private CardsValue _cardsValue;
+
+        private Deck(CardsValue cardsValue, CardsColor cardsColor)
+        {
+            this._cardsColor = cardsColor;
+            this._cardsValue = cardsValue;
+        }
+
+        /// <summary>
+        /// mix deck randomly
+        /// </summary>
+        public static void MixDeck()
+        {
+            var random = new Random();
+            for (var i = CardsDeck.Count - 1; i >= 1; i--)
+            {
+                var j = random.Next(i + 1);
+                var temp = CardsDeck[j];
+                CardsDeck[j] = CardsDeck[i];
+                CardsDeck[i] = temp;
+            }
+        }
+
+        /// <summary>
+        /// create and fill deck
+        /// </summary>
+        public static void FillDeck()
+        {
+            for (var i = 6; i <= 14; i++)
+            {
+                for (var j = 1; j <= 4; j++)
+                {
+                    var tmp = new Deck((CardsValue) i, (CardsColor) j);
+                    CardsDeck.Add(tmp);
+                }
+            }
+        }
+    }
+}
