@@ -4,7 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            Players.StartGame();
+            Cards.FillDeck();
+            Cards.MixDeck();
+            Players.DistributionCards();
+            GameLogic.TransferDeck(ref Players.Player1Deck, ref Players.Player2Deck);
+            GameLogic.GameStart();
         }
     }
 }

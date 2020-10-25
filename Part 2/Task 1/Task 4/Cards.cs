@@ -12,7 +12,6 @@
         King = 13,
         Ace = 14
     }
-
     public enum CardsColor
     {
         Diamonds = 1,

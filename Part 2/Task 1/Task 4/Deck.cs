@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Task_4
 {
-    public class Deck
+    public class Cards
     {
-        public static readonly List<Deck> CardsDeck = new List<Deck>();
+        public static readonly List<Cards> CardsDeck = new List<Cards>();
         private CardsColor _cardsColor;
-        private CardsValue _cardsValue;
+        public CardsValue CardsValue;
 
-        private Deck(CardsValue cardsValue, CardsColor cardsColor)
+        private Cards(CardsValue cardsValue, CardsColor cardsColor)
         {
             this._cardsColor = cardsColor;
-            this._cardsValue = cardsValue;
+            this.CardsValue = cardsValue;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Task_4
             {
                 for (var j = 1; j <= 4; j++)
                 {
-                    var tmp = new Deck((CardsValue) i, (CardsColor) j);
+                    var tmp = new Cards((CardsValue) i, (CardsColor) j);
                     CardsDeck.Add(tmp);
                 }
             }
