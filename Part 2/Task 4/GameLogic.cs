@@ -10,8 +10,6 @@ namespace Task_4
         private static Queue<Cards> _player1Cards = new Queue<Cards>();
 
         private static Queue<Cards> _player2Cards = new Queue<Cards>();
-        // private static Cards _player1Card = null;
-        // private static Cards _player2Card = null;
 
         public static void TransferDeck(ref Queue<Cards> player1Deck, ref Queue<Cards> player2Deck)
         {
@@ -23,11 +21,27 @@ namespace Task_4
         {
             var turn = new int();
             var game = true;
-            while (game)
+            while (game && turn < 5000)
             {
                 turn++;
-                
+
+                if (_player1Cards.Count != 0)
+                    if (_player2Cards.Count != 0)
+                        Compare(_player1Cards.Dequeue(), _player2Cards.Dequeue());
+
+                    else
+                    {
+                        Console.WriteLine(turn);
+                        game = false;
+                    }
+                else
+                {
+                    Console.WriteLine(turn);
+                    game = false;
+                }
             }
+            _player1Cards.Clear();
+            _player2Cards.Clear();
         }
 
         private static void Compare(Cards x, Cards y)
@@ -41,12 +55,14 @@ namespace Task_4
                     _player1Cards.Enqueue(x);
                     _player1Cards.Enqueue(y);
                     ClearTable(ref _player1Cards);
+                    return;
                 }
                 else
                 {
                     _player2Cards.Enqueue(y);
                     _player2Cards.Enqueue(x);
                     ClearTable(ref _player2Cards);
+                    return;
                 }
             }
 
@@ -77,8 +93,26 @@ namespace Task_4
         {
             _table.Enqueue(x);
             _table.Enqueue(y);
-            _table.Enqueue(_player1Cards.Dequeue());
-            _table.Enqueue(_player2Cards.Dequeue());
+            if (_player1Cards.Count != 0 && _player2Cards.Count != 0)
+            {
+                _table.Enqueue(_player1Cards.Dequeue());
+                _table.Enqueue(_player2Cards.Dequeue());
+            }
+            else
+            {
+                if (_player1Cards.Count > _player2Cards.Count)
+                {
+                    ClearTable(ref _player1Cards);
+                }
+                else
+                {
+                    ClearTable(ref _player2Cards);
+                }
+
+                return;
+            }
+
+            if (_player1Cards.Count == 0 || _player2Cards.Count == 0) return;
             Compare(_player1Cards.Dequeue(), _player2Cards.Dequeue());
         }
 
@@ -89,6 +123,8 @@ namespace Task_4
             {
                 player.Enqueue(card);
             }
+
+            _table.Clear();
         }
     }
 }
