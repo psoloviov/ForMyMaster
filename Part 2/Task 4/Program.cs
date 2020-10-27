@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            Cards.FillDeck();
+            Cards.CreateAndFillDeck();
             Cards.MixDeck();
             Players.DistributionCards();
             GameLogic.TransferDeck(ref Players.Player1Deck, ref Players.Player2Deck);

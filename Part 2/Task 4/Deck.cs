@@ -33,7 +33,7 @@ namespace Task_4
         /// <summary>
         /// create and fill deck
         /// </summary>
-        public static void FillDeck()
+        public static void CreateAndFillDeck()
         {
             for (var i = 6; i <= 14; i++)
             {
