@@ -40,6 +40,7 @@
     <ItemGroup>
         <Compile Include="Cards.cs" />
         <Compile Include="Deck.cs" />
+        <Compile Include="FileOutput.cs" />
         <Compile Include="GameLogic.cs" />
         <Compile Include="Players.cs" />
         <Compile Include="Program.cs" />
