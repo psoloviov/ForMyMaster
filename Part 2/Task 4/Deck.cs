@@ -6,12 +6,12 @@ namespace Task_4
     public class Cards
     {
         public static readonly List<Cards> CardsDeck = new List<Cards>();
-        private CardsColor _cardsColor;
+        public CardsColor CardsColor;
         public CardsValue CardsValue;
 
         private Cards(CardsValue cardsValue, CardsColor cardsColor)
         {
-            this._cardsColor = cardsColor;
+            this.CardsColor = cardsColor;
             this.CardsValue = cardsValue;
         }
 

@@ -7,41 +7,41 @@ namespace Task_4
     public class GameLogic
     {
         private static Queue<Cards> _table = new Queue<Cards>();
-        private static Queue<Cards> _player1Cards = new Queue<Cards>();
-
-        private static Queue<Cards> _player2Cards = new Queue<Cards>();
+        public static Queue<Cards> Player1Cards = new Queue<Cards>();
+        public static Queue<Cards> Player2Cards = new Queue<Cards>();
+        
+        public static int Turn = new int();
 
         public static void TransferDeck(ref Queue<Cards> player1Deck, ref Queue<Cards> player2Deck)
         {
-            _player1Cards = player1Deck;
-            _player2Cards = player2Deck;
+            Player1Cards = player1Deck;
+            Player2Cards = player2Deck;
         }
 
         public static void GameStart()
         {
-            var turn = new int();
             var game = true;
-            while (game && turn < 5000)
+            while (game && Turn != 5000)
             {
-                turn++;
-
-                if (_player1Cards.Count != 0)
-                    if (_player2Cards.Count != 0)
-                        Compare(_player1Cards.Dequeue(), _player2Cards.Dequeue());
+                Turn++;
+                Output.Turn();
+                if (Player1Cards.Count != 0)
+                    if (Player2Cards.Count != 0)
+                        Compare(Player1Cards.Dequeue(), Player2Cards.Dequeue());
 
                     else
                     {
-                        Console.WriteLine(turn);
+                        Console.WriteLine($"Game generate. Turns: {Turn}");
                         game = false;
                     }
                 else
                 {
-                    Console.WriteLine(turn);
+                    Console.WriteLine($"Game generate. Turns: {Turn}");
                     game = false;
                 }
             }
-            _player1Cards.Clear();
-            _player2Cards.Clear();
+            Player1Cards.Clear();
+            Player2Cards.Clear();
         }
 
         private static void Compare(Cards x, Cards y)
@@ -52,16 +52,18 @@ namespace Task_4
             {
                 if (x.CardsValue == Six)
                 {
-                    _player1Cards.Enqueue(x);
-                    _player1Cards.Enqueue(y);
-                    ClearTable(ref _player1Cards);
+                    Player1Cards.Enqueue(x);
+                    Player1Cards.Enqueue(y);
+                    ClearTable(ref Player1Cards);
+                    Output.Winner(1);
                     return;
                 }
                 else
                 {
-                    _player2Cards.Enqueue(y);
-                    _player2Cards.Enqueue(x);
-                    ClearTable(ref _player2Cards);
+                    Player2Cards.Enqueue(y);
+                    Player2Cards.Enqueue(x);
+                    ClearTable(ref Player2Cards);
+                    Output.Winner(2);
                     return;
                 }
             }
@@ -75,17 +77,19 @@ namespace Task_4
             //player 2 give card player 1
             if (x.CardsValue > y.CardsValue)
             {
-                _player1Cards.Enqueue(x);
-                _player1Cards.Enqueue(y);
-                ClearTable(ref _player1Cards);
+                Player1Cards.Enqueue(x);
+                Player1Cards.Enqueue(y);
+                ClearTable(ref Player1Cards);
+                Output.Winner(1);
             }
 
             //player 1 give card player 2
             if (x.CardsValue < y.CardsValue)
             {
-                _player2Cards.Enqueue(y);
-                _player2Cards.Enqueue(x);
-                ClearTable(ref _player2Cards);
+                Player2Cards.Enqueue(y);
+                Player2Cards.Enqueue(x);
+                ClearTable(ref Player2Cards);
+                Output.Winner(2);
             }
         }
 
@@ -93,27 +97,27 @@ namespace Task_4
         {
             _table.Enqueue(x);
             _table.Enqueue(y);
-            if (_player1Cards.Count != 0 && _player2Cards.Count != 0)
+            if (Player1Cards.Count != 0 && Player2Cards.Count != 0)
             {
-                _table.Enqueue(_player1Cards.Dequeue());
-                _table.Enqueue(_player2Cards.Dequeue());
+                _table.Enqueue(Player1Cards.Dequeue());
+                _table.Enqueue(Player2Cards.Dequeue());
             }
             else
             {
-                if (_player1Cards.Count > _player2Cards.Count)
+                if (Player1Cards.Count > Player2Cards.Count)
                 {
-                    ClearTable(ref _player1Cards);
+                    ClearTable(ref Player1Cards);
                 }
                 else
                 {
-                    ClearTable(ref _player2Cards);
+                    ClearTable(ref Player2Cards);
                 }
 
                 return;
             }
 
-            if (_player1Cards.Count == 0 || _player2Cards.Count == 0) return;
-            Compare(_player1Cards.Dequeue(), _player2Cards.Dequeue());
+            if (Player1Cards.Count == 0 || Player2Cards.Count == 0) return;
+            Compare(Player1Cards.Dequeue(), Player2Cards.Dequeue());
         }
 
         private static void ClearTable(ref Queue<Cards> player)
