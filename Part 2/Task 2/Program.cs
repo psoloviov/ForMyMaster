@@ -4,6 +4,7 @@ using System.IO;
 
 namespace Task_2
 {
+    // I don't have time to redo this codе
     internal class Program
     {
         struct table
