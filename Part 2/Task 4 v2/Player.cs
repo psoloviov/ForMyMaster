@@ -1,22 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Task_4_v2
 {
     public class Player
     {
-        public Guid Id { get; }
-        public string name { get; set; }
-        public Queue<Card> Queue { get; }
+        private static int _id;
 
-        void MakeTurn()
+        public string Name { get; set; }
+        public Queue<Card> Queue { get; } = new Queue<Card>();
+
+        public Player()
+        {
+            Name = "Player " + _id;
+        }
+
+        public Player(string name)
+        {
+            Name = name;
+        }
+
+        public void MakeTurn()
         {
             
         }
 
-        void TakeCards(List<Card> cards)
+        public void TakeCard(Card card) 
         {
-            
+            Queue.Enqueue(card);
         }
     }
 }
