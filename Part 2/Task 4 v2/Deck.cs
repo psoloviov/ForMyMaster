@@ -5,7 +5,7 @@ namespace Task_4_v2
 {
     public class Deck
     {
-        public List<Card> List { get; }
+        public static List<Card> List { get; } = new List<Card>(); //36
 
 
         public Deck()
@@ -18,12 +18,9 @@ namespace Task_4_v2
                     List.Add(tmp);
                 }
             }
-
-            Console.WriteLine(List[2].Value);
-            Console.WriteLine(List[2].Suit);
         }
 
-        private void MixDeck(Deck deck)
+        public void MixDeck()
         {
             var random = new Random();
             for (var i = List.Count - 1; i >= 1; i--)
