@@ -16,7 +16,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f9e1f4-3ee9-4ed9-8fb5-86ef10bc400f" name="Default Changelist" comment="" />
+    <list default="true" id="06f9e1f4-3ee9-4ed9-8fb5-86ef10bc400f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../OOP/.idea/.idea.OOP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/.idea/.idea.OOP/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOP/.idea/.idea.OOP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/.idea/.idea.OOP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.algorithms/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.algorithms/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Part 2/Task 4 v2/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Part 2/Task 4 v2/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Part 2/Task 4 v2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Part 2/Task 4 v2/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,9 +33,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Task1.1/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Task1.3/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Task1.0/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Task1.2/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Task1.3/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -159,6 +165,7 @@
       <workItem from="1601056066556" duration="3137000" />
       <workItem from="1601146726781" duration="2800000" />
       <workItem from="1601282867087" duration="4910000" />
+      <workItem from="1604765692928" duration="125000" />
     </task>
     <servers />
   </component>
